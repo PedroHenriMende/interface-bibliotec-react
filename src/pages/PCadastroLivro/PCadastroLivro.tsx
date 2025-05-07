@@ -1,13 +1,14 @@
 // Importa o componente de cabeçalho da aplicação
 import Cabecalho from "../../components/Cabecalho/Cabecalho";
+import FormLivro from "../../components/Formularios/FormEmprestimo/FormLivro";
 // Importa o componente que contém o formulário de login
-import LoginForm from "../../components/LoginForm/LoginForm";
+
 
 // Importa o componente de rodapé da aplicação
 import Rodape from "../../components/Rodape/Rodape";
 
 // Componente funcional que representa a página de login
-function PLogin() {
+function PCadastroLivro() {
     return (
         <div className="pagina-grid">
             {/* Renderiza o cabeçalho da página */}
@@ -15,7 +16,7 @@ function PLogin() {
 
             {/* Renderiza o formulário de login */}
             {/* <LoginForm /> */}
-            <LoginForm />
+            <FormLivro />
 
             {/* Renderiza o rodapé da página */}
             <Rodape />
@@ -24,4 +25,4 @@ function PLogin() {
 }
 
 // Exporta o componente para que possa ser usado em outras partes da aplicação
-export default PLogin;
+export default PCadastroLivro;
