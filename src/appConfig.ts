@@ -13,7 +13,7 @@ export const APP_ROUTES = {
     ROUTE_LISTAGEM_LIVROS: '/livros',
 
     ROUTE_CADASTRO_ALUNO: '/cadastro/aluno',
-    ROUTE_CADASTRO_EMPRESTIMO: '/cadastro/emprestimo',
+    ROUTE_CADASTRO_EMPRESTIMO:'/cadastro/emprestimo',
     ROUTE_CADASTRO_LIVRO: '/cadastro/livro',
 }
 

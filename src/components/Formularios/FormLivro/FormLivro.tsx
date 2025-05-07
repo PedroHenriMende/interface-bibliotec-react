@@ -12,13 +12,14 @@ function FormLivro() {
         quantTotal: 0,
         quantDisponivel: 0,
         valorAquisicao: 0,
+        statusLivroEmprestado: ''
     });
 
     const handleChange = (nome: string, valor: string) => {
         setFormData({ ...formData, [nome]: valor });
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (formData: {titulo: string; autor: string; editora: string; anoPublicacao: number; isbn:string; quantTotal: number; quantDisponivel: number; valorAquisicao: number; }) => {
         const resposta = await LivroRequests.enviaFormularioLivro(JSON.stringify(formData));
         if (resposta) {
             alert('Livro cadastrado com sucesso.');
@@ -30,12 +31,7 @@ function FormLivro() {
     return (
         <section className={estilo['sec-form-livro']}>
             <h1>Cadastro de Livro</h1>
-            <form
-                action="post"
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    handleSubmit();
-                }}
+            <form action="post" onSubmit={(e) => { e.preventDefault(); handleSubmit(formData); }}
                 className={estilo['form-livro']}
             >
                 <label htmlFor="">
@@ -44,7 +40,6 @@ function FormLivro() {
                         type="text"
                         name="titulo"
                         required
-                        maxLength={200}
                         onChange={(e) => handleChange('titulo', e.target.value)}
                     />
                 </label>
@@ -55,7 +50,6 @@ function FormLivro() {
                         type="text"
                         name="autor"
                         required
-                        maxLength={150}
                         onChange={(e) => handleChange('autor', e.target.value)}
                     />
                 </label>
@@ -66,7 +60,6 @@ function FormLivro() {
                         type="text"
                         name="editora"
                         required
-                        maxLength={100}
                         onChange={(e) => handleChange('editora', e.target.value)}
                     />
                 </label>
@@ -76,7 +69,8 @@ function FormLivro() {
                     <input
                         type="text"
                         name="anoPublicacao"
-                        maxLength={5}
+                        minLength={4}
+                        maxLength={4}
                         onChange={(e) => handleChange('anoPublicacao', e.target.value)}
                     />
                 </label>
@@ -97,7 +91,6 @@ function FormLivro() {
                         type="number"
                         name="quantTotal"
                         required
-                        min={0}
                         onChange={(e) => handleChange('quantTotal', e.target.value)}
                     />
                 </label>
@@ -108,7 +101,6 @@ function FormLivro() {
                         type="number"
                         name="quantDisponivel"
                         required
-                        min={0}
                         onChange={(e) => handleChange('quantDisponivel', e.target.value)}
                     />
                 </label>
@@ -118,10 +110,10 @@ function FormLivro() {
                     <input
                         type="number"
                         name="valorAquisicao"
-                        step="0.01"
                         onChange={(e) => handleChange('valorAquisicao', e.target.value)}
                     />
                 </label>
+
                 <input type="submit" value="ENVIAR" />
             </form>
         </section>

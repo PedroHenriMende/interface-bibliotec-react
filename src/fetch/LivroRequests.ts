@@ -54,6 +54,7 @@ class LivroRequests {
             return null;
         }
     }
+
     async enviaFormularioLivro(formLivro: string): Promise<boolean> {
         try {
             const respostaAPI = await fetch(`${this.serverURL}${this.routeCadastraLivro}`, {
@@ -70,7 +71,7 @@ class LivroRequests {
 
             return true;
         } catch (error) {
-        console.error(`Erro ao enviar o formulário de livro. ${error}`);
+            console.error(`Erro ao enviar o formulário de livro. ${error}`);
             return false;
         }
     }

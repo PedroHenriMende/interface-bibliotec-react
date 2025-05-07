@@ -1,5 +1,6 @@
 // Importa o componente de cabeçalho da aplicação
 import Cabecalho from "../../components/Cabecalho/Cabecalho";
+
 // Importa o componente que contém o formulário de login
 import LoginForm from "../../components/LoginForm/LoginForm";
 
